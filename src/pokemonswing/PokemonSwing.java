@@ -5,6 +5,7 @@
  */
 package pokemonswing;
 
+import java.util.HashMap;
 import modelo.Pokemon;
 import modelo.PokemonAgua;
 import modelo.PokemonFuego;
@@ -16,9 +17,7 @@ import modelo.PokemonPlanta;
  */
 public class PokemonSwing {
 
-    /**
-     * @param args the command line arguments
-     */
+  static HashMap<String, Pokemon> pokemonHash = new HashMap<>();
     public static void main(String[] args) {
         //Los Pokemon deberán guardarse en un HashMap. No pueden existir dos Pokemon con el mismo nombre.
         Principal ps = new Principal();

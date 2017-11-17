@@ -6,8 +6,10 @@
 package pokemonswing;
 
 import javax.swing.JOptionPane;
+import modelo.Pokemon;
 import modelo.PokemonFuego;
 import modelo.PokemonPlanta;
+import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
  *
@@ -169,6 +171,7 @@ public class AltaPokemonPlanta extends javax.swing.JDialog {
         String name = nombre.getText();
         String habitats = habitat.getText();
 
+        
         if (name.equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "Nombre vacio");
         } else if (ataque < 0) {
@@ -178,13 +181,16 @@ public class AltaPokemonPlanta extends javax.swing.JDialog {
         } else if (hp < 0) {
             JOptionPane.showMessageDialog(this, "Salud negativa");
         } else {
+             Pokemon pk = pokemonHash.get(name);
+            if(pk == null){
             PokemonPlanta n = new PokemonPlanta(name,ataque,defensa,hp);
-            //añadirlo a un hashmap
-            // .put(n.getNombre(), n);
-            JOptionPane.showMessageDialog(this, "Pokemon: " + name + "Tipo Agua dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
-        }
+            pokemonHash.put(n.getNombre(), n);
+            JOptionPane.showMessageDialog(this, "Pokemon: " + name + " " + "Tipo Agua dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+               JOptionPane.showMessageDialog(this, "Ya existe un pokemon con ese nombre");  
+            }
     }//GEN-LAST:event_jButton3ActionPerformed
-
+   }
     /**
      * @param args the command line arguments
      */

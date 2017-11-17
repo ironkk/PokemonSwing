@@ -6,7 +6,9 @@
 package pokemonswing;
 
 import javax.swing.JOptionPane;
+import modelo.Pokemon;
 import modelo.PokemonAgua;
+import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
  *
@@ -74,7 +76,7 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
             }
         });
 
-        tAgua.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tAgua.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dulce", "Salada" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,18 +161,22 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
         else if(defensa < 0) JOptionPane.showMessageDialog(this, "Defensa negativa");
         else if(hp < 0) JOptionPane.showMessageDialog(this, "Salud negativa");
         else {
+            Pokemon pk = pokemonHash.get(name);
+            if(pk == null){
             boolean dulce = false;
             if(tAguas.equalsIgnoreCase("dulce")){
                 dulce = true;
             }
              PokemonAgua n = new PokemonAgua(dulce, name, ataque, defensa, hp);
              //añadirlo a un hashmap
-             // .put(n.getNombre(), n);
-             JOptionPane.showMessageDialog(this, "Pokemon: " +name+ "Tipo Agua dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
-        }
+             pokemonHash.put(n.getNombre(), n);
+             JOptionPane.showMessageDialog(this, "Pokemon: " +name+ " " + "Tipo Agua dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+               JOptionPane.showMessageDialog(this, "Ya existe un Pokemon con ese nombre");  
+            }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
+ }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner atk;
