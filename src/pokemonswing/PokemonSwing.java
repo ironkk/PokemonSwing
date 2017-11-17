@@ -19,7 +19,6 @@ public class PokemonSwing {
 
   static HashMap<String, Pokemon> pokemonHash = new HashMap<>();
     public static void main(String[] args) {
-        //Los Pokemon deberán guardarse en un HashMap. No pueden existir dos Pokemon con el mismo nombre.
         Principal ps = new Principal();
         ps.setLocationRelativeTo(null);
         ps.setVisible(true);

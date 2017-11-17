@@ -5,6 +5,10 @@
  */
 package pokemonswing;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import modelo.Pokemon;
 import static pokemonswing.PokemonSwing.pokemonHash;
 
@@ -13,10 +17,23 @@ import static pokemonswing.PokemonSwing.pokemonHash;
  * @author DAM
  */
 public class VerTodos extends javax.swing.JDialog {
+
     int posicion = 0;
+
+    private ArrayList<Pokemon> pokemonList = new ArrayList<>();
+
     public VerTodos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+
+        Iterator it = pokemonHash.keySet().iterator();
+        while (it.hasNext()) {
+            String nombre = (String) it.next();
+            Pokemon p = pokemonHash.get(nombre);
+            pokemonList.add(p);
+        }
+        andaluja();
         initComponents();
+
     }
 
     /**
@@ -128,21 +145,23 @@ public class VerTodos extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        posicion++; 
         
-        if(posicion < pokemonHash.size()){
-            Pokemon p = pokemonHash.get(posicion);
-         nombre.setText(p.getNombre());
-         ataque.setText(Integer.toString(p.getAtaque()));
-         defensa.setText(Integer.toString(p.getDefensa()));
-         salud.setText(Integer.toString(p.getSalud()));
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void andaluja(){
+        posicion++;
+
+        if (posicion < pokemonList.size()) {
+            Pokemon p = pokemonList.get(posicion);
+            nombre.setText(p.getNombre());
+            ataque.setText(Integer.toString(p.getAtaque()));
+            defensa.setText(Integer.toString(p.getDefensa()));
+            salud.setText(Integer.toString(p.getSalud()));
+        }
+    }
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ataque;
