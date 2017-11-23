@@ -87,4 +87,8 @@ public class Pokemon {
         return true;
     }
     
+    public void djfoipdj(){
+        System.out.println("test");
+    }
+    
 }

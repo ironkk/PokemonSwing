@@ -16,10 +16,10 @@ import modelo.PokemonPlanta;
  * @author DAM
  */
 public class PokemonSwing {
-
   static HashMap<String, Pokemon> pokemonHash = new HashMap<>();
     public static void main(String[] args) {
         Principal ps = new Principal();
+         // para centrarlo
         ps.setLocationRelativeTo(null);
         ps.setVisible(true);
 

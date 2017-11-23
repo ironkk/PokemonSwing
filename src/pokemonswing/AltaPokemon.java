@@ -6,6 +6,7 @@
 package pokemonswing;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,22 +32,14 @@ public class AltaPokemon extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        agua = new javax.swing.JRadioButton();
-        planta = new javax.swing.JRadioButton();
-        fuego = new javax.swing.JRadioButton();
         aceptar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Tipo del Pokemon?");
-
-        agua.setText("Agua");
-
-        planta.setText("Planta");
-
-        fuego.setText("Fuego");
 
         aceptar.setText("OK");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +55,13 @@ public class AltaPokemon extends javax.swing.JDialog {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Elige tipo Pokemon-", "Fuego", "Agua", "Planta" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,21 +70,15 @@ public class AltaPokemon extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(agua)
-                                .addGap(34, 34, 34)
-                                .addComponent(planta))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(93, 93, 93)))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fuego)
-                            .addComponent(aceptar)))
+                        .addComponent(jButton4)
+                        .addGap(125, 125, 125)
+                        .addComponent(aceptar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,12 +86,9 @@ public class AltaPokemon extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agua)
-                    .addComponent(planta)
-                    .addComponent(fuego))
-                .addGap(40, 40, 40)
+                .addGap(27, 27, 27)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aceptar)
                     .addComponent(jButton4))
@@ -108,17 +99,19 @@ public class AltaPokemon extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        if (agua.isSelected()) {
+        if (jComboBox1.getSelectedItem().equals("-Elige tipo pokemon-")) {
+            JOptionPane.showMessageDialog(this, "Elige un tipo");
+        }else if(jComboBox1.getSelectedItem().equals("Agua")){
             AltaPokemonAgua a = new AltaPokemonAgua(null, true);
             a.setLocationRelativeTo(null);
             a.setVisible(true);
             a.getContentPane().setBackground(new Color(255,255,204));
-        } else if (fuego.isSelected()) {
+        } else if (jComboBox1.getSelectedItem().equals("Fuego")) {
             AltaPokemonFuego f = new AltaPokemonFuego(null, true);
             f.setLocationRelativeTo(null);
             f.setVisible(true);
             f.getContentPane().setBackground(new Color(255,255,204));
-        } else {
+        } else if(jComboBox1.getSelectedItem().equals("Planta")) {
             AltaPokemonPlanta p = new AltaPokemonPlanta(null, true);
             p.setLocationRelativeTo(null);
             p.setVisible(true);
@@ -130,6 +123,10 @@ public class AltaPokemon extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -137,10 +134,8 @@ public class AltaPokemon extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptar;
-    private javax.swing.JRadioButton agua;
-    private javax.swing.JRadioButton fuego;
     private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton planta;
     // End of variables declaration//GEN-END:variables
 }
