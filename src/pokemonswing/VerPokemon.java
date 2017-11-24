@@ -31,6 +31,7 @@ public class VerPokemon extends javax.swing.JDialog {
         disableButtons();
 
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -132,9 +133,9 @@ public class VerPokemon extends javax.swing.JDialog {
                                 .addGap(32, 32, 32)
                                 .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3)
-                            .addComponent(salud, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(salud, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,9 +146,9 @@ public class VerPokemon extends javax.swing.JDialog {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,23 +171,8 @@ public class VerPokemon extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        enableButtons();
+        jButton2.setEnabled(true);
         posicion++;
-        if (posicion < pokemonList.size()) {
-            Pokemon p = pokemonList.get(posicion);
-            nombre.setText(p.getNombre());
-            ataque.setText(Integer.toString(p.getAtaque()));
-            defensa.setText(Integer.toString(p.getDefensa()));
-            salud.setText(Integer.toString(p.getSalud()));
-
-        } else {
-            jButton2.setEnabled(false);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        enableButtons();
-        posicion--;
         if (posicion < pokemonList.size()) {
             Pokemon p = pokemonList.get(posicion);
             nombre.setText(p.getNombre());
@@ -197,9 +183,26 @@ public class VerPokemon extends javax.swing.JDialog {
         } else {
             jButton1.setEnabled(false);
         }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jButton1.setEnabled(true);
+        posicion--;
+        if (posicion >= 0) {
+            Pokemon p = pokemonList.get(posicion);
+            nombre.setText(p.getNombre());
+            ataque.setText(Integer.toString(p.getAtaque()));
+            defensa.setText(Integer.toString(p.getDefensa()));
+            salud.setText(Integer.toString(p.getSalud()));
+
+        } else {
+            jButton2.setEnabled(false);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    
+
         //llamada al método que activa los botones
         enableButtons();
         //
@@ -216,14 +219,32 @@ public class VerPokemon extends javax.swing.JDialog {
             //*************
             if (tipos.equalsIgnoreCase("todos")) {
                 pokemonList.add(p);
+            }else if(tipos.equalsIgnoreCase("fuego")){
+                // pokemonList = p.getClass().getSimpleName());
+            }else if(tipos.equalsIgnoreCase("agua")){
+                
+            }else if(tipos.equalsIgnoreCase("planta")){
+                
             }
 
         }
+        if (pokemonList.size() >= 0) {
+            Pokemon p = pokemonList.get(0);
+            nombre.setText(p.getNombre());
+            ataque.setText(Integer.toString(p.getAtaque()));
+            defensa.setText(Integer.toString(p.getDefensa()));
+            salud.setText(Integer.toString(p.getSalud()));
+
+        } else {
+
+            jButton1.setEnabled(false);
+        }
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoActionPerformed
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_tipoActionPerformed
 
     //creando método que desabilita los botones jButton2(Anterior), jButton1(Siguiente)

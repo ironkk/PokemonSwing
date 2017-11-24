@@ -29,7 +29,6 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
-        atk = new javax.swing.JSpinner();
         def = new javax.swing.JSpinner();
         salud = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
@@ -37,6 +36,7 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         tAgua = new javax.swing.JComboBox<>();
+        atk = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,6 +47,8 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
         jLabel3.setText("Defensa:");
 
         jLabel4.setText("Salud:");
+
+        salud.setModel(new javax.swing.SpinnerNumberModel(20, 20, 100, 1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel5.setText("Alta Pokemon Agua");
@@ -89,12 +91,12 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(salud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(def, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(atk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tAgua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(atk, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(salud, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(def, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tAgua, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(jLabel5)))

@@ -48,6 +48,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         ver.setText("Ver Pokemon");
+        ver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verActionPerformed(evt);
+            }
+        });
 
         capturar.setText("Capturar Pokemon");
 
@@ -111,8 +116,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_altaActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        // TODO add your handling code here:
+        ModificarPokemon m = new ModificarPokemon(this, true);
+        m.setLocationRelativeTo(null);
+        m.setVisible(true);
     }//GEN-LAST:event_modificarActionPerformed
+
+    private void verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verActionPerformed
+        VerPokemon vp = new VerPokemon(this, true);
+        vp.setLocationRelativeTo(null);
+        vp.setVisible(true);
+    }//GEN-LAST:event_verActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alta;
