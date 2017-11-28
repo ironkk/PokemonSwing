@@ -13,7 +13,7 @@ package modelo;
 import java.util.Objects;
 import java.util.Random;
 
- public class PokemonPlanta extends Pokemon implements Capturable{
+ public class PokemonPlanta extends Pokemon{
     private String efectivoContra = "Agua";
     private String debilContra = "Fuego";
 
@@ -61,13 +61,9 @@ import java.util.Random;
     public boolean capturar() {
         int numObtenido = numAleatorio();
         if (numObtenido-getSalud() > getDefensa()){
-            System.out.println(getNombre()+" CAPTURADO!");
-            System.out.println("------------------");
             return true;
         }else{
-            System.out.println(getNombre()+" NO CAPTURADO...");
-            System.out.println("------------------");
-            System.out.println("Numero obtenido: "+numObtenido);
+
             return false;
         }
     }

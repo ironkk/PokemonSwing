@@ -15,6 +15,7 @@ import static pokemonswing.PokemonSwing.pokemonHash;
  * @author DAM
  */
 public class AltaPokemonAgua extends javax.swing.JDialog {
+
     public AltaPokemonAgua(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -144,41 +145,47 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //extraemos valor del spinner con getValue y del TextField con getTexts
+
         int ataque = (int) atk.getValue();
         int defensa = (int) def.getValue();
         int hp = (int) salud.getValue();
         String name = nombre.getText();
         String tAguas = (String) tAgua.getSelectedItem();
-        
+
         //filtramos para tener los posibles errores en cuenta
-        if(name.equalsIgnoreCase("")) JOptionPane.showMessageDialog(this, "Nombre vacio");
-        else if(ataque < 0) JOptionPane.showMessageDialog(this, "Ataque negativo");
-        else if(defensa < 0) JOptionPane.showMessageDialog(this, "Defensa negativa");
-        else if(hp < 0) JOptionPane.showMessageDialog(this, "Salud negativa");
+        if (name.equalsIgnoreCase(""))
+            JOptionPane.showMessageDialog(this, "Nombre vacio");
+        else if (ataque < 0)
+            JOptionPane.showMessageDialog(this, "Ataque negativo");
+        else if (defensa < 0)
+            JOptionPane.showMessageDialog(this, "Defensa negativa");
+        else if (hp < 0)
+            JOptionPane.showMessageDialog(this, "Salud negativa");
         else {
-        //instanciamos un objeto pk de la clase Pokemon, al cual le asignaremos el nombre de nuestro HashMap
+            //instanciamos un objeto pk de la clase Pokemon, al cual le asignaremos el nombre de nuestro HashMap
             Pokemon pk = pokemonHash.get(name);
-        // si nuestro objeto esta vació, es decir el nombre ya existe, es null, crearemos un pokemon de tipoAgua.
-            if(pk == null){
-        // creamos un booleano para determinar si el pokemon es de agua dulce o agua salada. por defecto sera de agua salada a no ser que se especifica que es de dulce,
-        // el valor del booleano cambiara a true y sera dulce.        
-            boolean dulce = false;
-            if(tAguas.equalsIgnoreCase("dulce")){
-                dulce = true;
-            }
-             //creamos el PokemonAgua  teniendo en cuenta que si el primer valor es true (tipo agua: dulce) y si es false ( tipo agua: salada).
-             PokemonAgua n = new PokemonAgua(dulce, name, ataque, defensa, hp);
-             //y lo añadiremos a nuestro HashMap, mediante el put.
-             pokemonHash.put(n.getNombre(), n);
-             // ya que ese pokemon no existia lo damos de alta
-             JOptionPane.showMessageDialog(this, "Pokemon: " +name+ " " + "Tipo Agua dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-             //ya que ese pokemon existe, mostramos el error y no lo damos de alta
-               JOptionPane.showMessageDialog(this, "Ya existe un Pokemon con ese nombre");  
+            // si nuestro objeto esta vació, es decir el nombre ya existe, es null, crearemos un pokemon de tipoAgua.
+            if (pk == null) {
+                // creamos un booleano para determinar si el pokemon es de agua dulce o agua salada. por defecto sera de agua salada a no ser que se especifica que es de dulce,
+                // el valor del booleano cambiara a true y sera dulce.        
+                boolean dulce = false;
+                if (tAguas.equalsIgnoreCase("dulce")) {
+                    dulce = true;
+                }
+                //creamos el PokemonAgua  teniendo en cuenta que si el primer valor es true (tipo agua: dulce) y si es false ( tipo agua: salada).
+                PokemonAgua n = new PokemonAgua(dulce, name, ataque, defensa, hp);
+                //y lo añadiremos a nuestro HashMap, mediante el put.
+                pokemonHash.put(n.getNombre(), n);
+                // ya que ese pokemon no existia lo damos de alta
+                JOptionPane.showMessageDialog(this, "Pokemon: " + name + " " + "Tipo Agua dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                //ya que ese pokemon existe, mostramos el error y no lo damos de alta
+                JOptionPane.showMessageDialog(this, "Ya existe un Pokemon con ese nombre");
             }
 
     }//GEN-LAST:event_jButton1ActionPerformed
- }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner atk;

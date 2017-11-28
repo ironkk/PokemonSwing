@@ -119,11 +119,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Capturar Pokemon"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="capturarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="totales">
           <Properties>
             <Property name="text" type="java.lang.String" value="Totales"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalesActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

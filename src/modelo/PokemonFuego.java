@@ -12,7 +12,7 @@ import java.util.Random;
  *
  * @author DAM
  */
-public class PokemonFuego extends Pokemon implements Capturable {
+public class PokemonFuego extends Pokemon {
 
     private String efectivoContra = "Planta";
     private String debilContra = "Agua";
@@ -61,13 +61,8 @@ public class PokemonFuego extends Pokemon implements Capturable {
     public boolean capturar() {
         int numObtenido = numAleatorio();
         if (numObtenido - getSalud() > getDefensa()) {
-            System.out.println(getNombre() + " CAPTURADO!");
-            System.out.println("------------------");
             return true;
         } else {
-            System.out.println(getNombre() + "NO CAPTURADO...");
-            System.out.println("------------------");
-            System.out.println("Número obtenido: " + numObtenido);
             return false;
         }
     }

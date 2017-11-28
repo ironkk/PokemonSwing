@@ -5,6 +5,8 @@
  */
 package pokemonswing;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DAM
@@ -55,8 +57,18 @@ public class Principal extends javax.swing.JFrame {
         });
 
         capturar.setText("Capturar Pokemon");
+        capturar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                capturarActionPerformed(evt);
+            }
+        });
 
         totales.setText("Totales");
+        totales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,6 +138,16 @@ public class Principal extends javax.swing.JFrame {
         vp.setLocationRelativeTo(null);
         vp.setVisible(true);
     }//GEN-LAST:event_verActionPerformed
+
+    private void capturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capturarActionPerformed
+        CapturarPokemon cp = new CapturarPokemon(this, true);
+        cp.setLocationRelativeTo(null);
+        cp.setVisible(true);
+    }//GEN-LAST:event_capturarActionPerformed
+
+    private void totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalesActionPerformed
+           JOptionPane.showMessageDialog(this, "Fuego" );
+    }//GEN-LAST:event_totalesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alta;

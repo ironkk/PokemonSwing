@@ -7,7 +7,11 @@ package pokemonswing;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import modelo.Pokemon;
+import modelo.PokemonAgua;
+import modelo.PokemonFuego;
+import modelo.PokemonPlanta;
 import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
@@ -50,6 +54,7 @@ public class VerPokemon extends javax.swing.JDialog {
         tipo = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -94,14 +99,17 @@ public class VerPokemon extends javax.swing.JDialog {
 
         jLabel6.setText("Elige tipo de pokemon:");
 
+        jButton4.setText("CANCEL");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(188, 188, 188))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -119,36 +127,41 @@ public class VerPokemon extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(defensa, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel6)
-                                .addGap(32, 32, 32)
-                                .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(salud, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(salud, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel6)
+                        .addGap(32, 32, 32)
+                        .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)))
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel5)
-                .addGap(28, 28, 28)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                    .addComponent(jLabel6)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,13 +214,13 @@ public class VerPokemon extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    
 
+        vaciar();
         //llamada al método que activa los botones
         enableButtons();
         //
         String tipos = (String) tipo.getSelectedItem();
-//
+        //
         Iterator it = pokemonHash.keySet().iterator();
         /*
         
@@ -216,19 +229,27 @@ public class VerPokemon extends javax.swing.JDialog {
             String nombre = (String) it.next();
             Pokemon p = pokemonHash.get(nombre);
 
-            //*************
             if (tipos.equalsIgnoreCase("todos")) {
                 pokemonList.add(p);
-            }else if(tipos.equalsIgnoreCase("fuego")){
-                // pokemonList = p.getClass().getSimpleName());
-            }else if(tipos.equalsIgnoreCase("agua")){
-                
-            }else if(tipos.equalsIgnoreCase("planta")){
-                
+            } else if (tipos.equalsIgnoreCase("fuego")) {
+                if (p instanceof PokemonFuego) {
+
+                    pokemonList.add(p);
+
+                }
+            } else if (tipos.equalsIgnoreCase("agua")) {
+                if (p instanceof PokemonAgua) {
+                    pokemonList.add(p);
+                }
+
+            } else if (tipos.equalsIgnoreCase("planta")) {
+                if (p instanceof PokemonPlanta) {
+                    pokemonList.add(p);
+                }
             }
 
         }
-        if (pokemonList.size() >= 0) {
+        if (pokemonList.size() != 0) {
             Pokemon p = pokemonList.get(0);
             nombre.setText(p.getNombre());
             ataque.setText(Integer.toString(p.getAtaque()));
@@ -236,7 +257,7 @@ public class VerPokemon extends javax.swing.JDialog {
             salud.setText(Integer.toString(p.getSalud()));
 
         } else {
-
+            JOptionPane.showMessageDialog(this, "NO HAY POKEMONS DE ESE TIPO");
             jButton1.setEnabled(false);
         }
 
@@ -244,8 +265,21 @@ public class VerPokemon extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoActionPerformed
-  
+
     }//GEN-LAST:event_tipoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    public void vaciar() {
+        pokemonList.clear();
+        posicion = 0;
+        nombre.setText("");
+        ataque.setText("");
+        defensa.setText("");
+        salud.setText("");
+    }
 
     //creando método que desabilita los botones jButton2(Anterior), jButton1(Siguiente)
     public void disableButtons() {
@@ -261,12 +295,14 @@ public class VerPokemon extends javax.swing.JDialog {
         jButton2.setEnabled(true);
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ataque;
     private javax.swing.JTextField defensa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

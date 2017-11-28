@@ -6,7 +6,7 @@ import java.util.Objects;
  *
  * @author DAM
  */
-public class Pokemon {
+public abstract class Pokemon implements Capturable{
 
     private String nombre;
     private int ataque;
@@ -87,8 +87,36 @@ public class Pokemon {
         return true;
     }
     
-    public void djfoipdj(){
-        System.out.println("test");
+    /*
+     public int pPlanta() {
+        int numPlanta = 0;
+        for (Pokemon p : pokemonHash.values()) {
+            if (p.getClass().getSimpleName().equalsIgnoreCase("planta")) {
+                numPlanta++;
+            }
+        }
+        return numPlanta;
     }
+
+    public int pAgua() {
+        int numAgua = 0;
+        for (Pokemon p : pokemonHash.values()) {
+            if (p.getClass().getSimpleName().equalsIgnoreCase("agua")) {
+                numAgua++;
+            }
+        }
+        return numAgua;
+    }
+
+    public int pFuego() {
+        int numFuego = 0;
+        for (Pokemon p : pokemonHash.values()) {
+            if (p.getClass().getSimpleName().equalsIgnoreCase("fuego")) {
+                numFuego++;
+            }
+        }
+        return numFuego;
+    }
+    */
     
 }
