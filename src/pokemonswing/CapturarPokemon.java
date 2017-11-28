@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pokemonswing;
 
 import javax.swing.JOptionPane;
-import modelo.Capturable;
 import modelo.Pokemon;
 import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public class CapturarPokemon extends javax.swing.JDialog {
 
@@ -104,13 +98,12 @@ public class CapturarPokemon extends javax.swing.JDialog {
             Pokemon pk = pokemonHash.get(name);
             //si nuestro objeto esta vació, es decir el nombre ya existe, es null, crearemos un pokemon de tipoAgua.
             if (pk != null) {
-                
-         
-              if(pk.capturar() == true){
-                  JOptionPane.showMessageDialog(this, "CAPTURADO!");
-              }else{
-                  JOptionPane.showMessageDialog(this, "NO CAPTURADO");
-              }
+
+                if (pk.capturar() == true) {
+                    JOptionPane.showMessageDialog(this, "CAPTURADO!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "NO CAPTURADO");
+                }
 
             } else {
                 //ya que ese pokemon existe, mostramos el error y no lo damos de alta
@@ -120,6 +113,7 @@ public class CapturarPokemon extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //método para cerrar ventana
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

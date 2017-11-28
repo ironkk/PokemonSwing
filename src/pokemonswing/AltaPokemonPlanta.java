@@ -1,25 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pokemonswing;
 
 import javax.swing.JOptionPane;
 import modelo.Pokemon;
-import modelo.PokemonFuego;
 import modelo.PokemonPlanta;
 import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public class AltaPokemonPlanta extends javax.swing.JDialog {
+
     public AltaPokemonPlanta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -164,7 +160,7 @@ public class AltaPokemonPlanta extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      //extraemos valor del spinner con getValue y del TextField con getTexts
+        //extraemos valor del spinner con getValue y del TextField con getTexts
         int ataque = (int) atk.getValue();
         int defensa = (int) def.getValue();
         int hp = (int) salud.getValue();
@@ -172,28 +168,31 @@ public class AltaPokemonPlanta extends javax.swing.JDialog {
         String habitats = habitat.getText();
 
         //filtramos para tener los posibles errores en cuenta
-        if (name.equalsIgnoreCase("")) JOptionPane.showMessageDialog(this, "Nombre vacio");
-        else if (ataque < 0)JOptionPane.showMessageDialog(this, "Ataque negativo");
-        else if (defensa < 0)JOptionPane.showMessageDialog(this, "Defensa negativa");
-        else if (hp < 0) JOptionPane.showMessageDialog(this, "Salud negativa");
+        if (name.equalsIgnoreCase(""))
+            JOptionPane.showMessageDialog(this, "Nombre vacio");
+        else if (ataque < 0)
+            JOptionPane.showMessageDialog(this, "Ataque negativo");
+        else if (defensa < 0)
+            JOptionPane.showMessageDialog(this, "Defensa negativa");
+        else if (hp < 0)
+            JOptionPane.showMessageDialog(this, "Salud negativa");
         else {
-        //instanciamos un objeto pk de la clase Pokemon, al cual le asignaremos el nombre de nuestro HashMap
-             Pokemon pk = pokemonHash.get(name);
-        //si nuestro objeto esta vació, es decir el nombre ya existe, es null, crearemos un pokemon de tipoAgua.
-            if(pk == null){
-        //creamos el pokemonPlanta 
-            PokemonPlanta n = new PokemonPlanta(name,ataque,defensa,hp);
-        // lo añadimos en el HashMap mediante el put
-            pokemonHash.put(n.getNombre(), n);
-        // ya que ese pokemon no existia lo damos de alta
-            JOptionPane.showMessageDialog(this, "Pokemon: " + name + " " + "Tipo Planta dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-        //ya que ese pokemon existe, mostramos el error y no lo damos de alta
-               JOptionPane.showMessageDialog(this, "Ya existe un pokemon con ese nombre");  
+            //instanciamos un objeto pk de la clase Pokemon, al cual le asignaremos el nombre de nuestro HashMap
+            Pokemon pk = pokemonHash.get(name);
+            //si nuestro objeto esta vació, es decir el nombre ya existe, es null, crearemos un pokemon de tipoAgua.
+            if (pk == null) {
+                //creamos el pokemonPlanta 
+                PokemonPlanta n = new PokemonPlanta(name, ataque, defensa, hp);
+                // lo añadimos en el HashMap mediante el put
+                pokemonHash.put(n.getNombre(), n);
+                // ya que ese pokemon no existia lo damos de alta
+                JOptionPane.showMessageDialog(this, "Pokemon: " + name + " " + "Tipo Planta dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                //ya que ese pokemon existe, mostramos el error y no lo damos de alta
+                JOptionPane.showMessageDialog(this, "Ya existe un pokemon con ese nombre");
             }
     }//GEN-LAST:event_jButton3ActionPerformed
-   }
-  
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

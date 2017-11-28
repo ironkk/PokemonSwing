@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pokemonswing;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -16,7 +10,7 @@ import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public class VerPokemon extends javax.swing.JDialog {
 
@@ -215,6 +209,7 @@ public class VerPokemon extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
+        //llamada al método que limpia la lista, pone la posicion a 0 y limpia todos los textFields a vacíos "".
         vaciar();
         //llamada al método que activa los botones
         enableButtons();

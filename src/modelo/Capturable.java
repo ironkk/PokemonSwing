@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public interface Capturable {
+// declaramos el método capturar para poder utilizarlo en los tipos de pokemon
 
     public boolean capturar();
 }

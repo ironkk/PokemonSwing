@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 import java.util.Objects;
@@ -10,7 +5,7 @@ import java.util.Random;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public class PokemonFuego extends Pokemon {
 
@@ -56,7 +51,6 @@ public class PokemonFuego extends Pokemon {
         return true;
     }
 
-    
     @Override
     public boolean capturar() {
         int numObtenido = numAleatorio();

@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
-
 import java.util.Objects;
 import java.util.Random;
 
- public class PokemonPlanta extends Pokemon{
+public class PokemonPlanta extends Pokemon {
+
     private String efectivoContra = "Agua";
     private String debilContra = "Fuego";
 
@@ -23,14 +18,14 @@ import java.util.Random;
 
     @Override
     public String toString() {
-        return "Pokemon{" +
-                "nombre='" + getNombre() + '\'' +
-                ", ataque=" + getAtaque() +
-                ", defensa=" + getDefensa() +
-                ", salud=" + getSalud() +
-                ", efectivoContra='" + efectivoContra + '\'' +
-                ", debilContra='" + debilContra + '\'' +
-                '}';
+        return "Pokemon{"
+                + "nombre='" + getNombre() + '\''
+                + ", ataque=" + getAtaque()
+                + ", defensa=" + getDefensa()
+                + ", salud=" + getSalud()
+                + ", efectivoContra='" + efectivoContra + '\''
+                + ", debilContra='" + debilContra + '\''
+                + '}';
     }
 
     @Override
@@ -56,18 +51,16 @@ import java.util.Random;
         return true;
     }
 
-    
     @Override
     public boolean capturar() {
         int numObtenido = numAleatorio();
-        if (numObtenido-getSalud() > getDefensa()){
+        if (numObtenido - getSalud() > getDefensa()) {
             return true;
-        }else{
+        } else {
 
             return false;
         }
     }
-
 
     public String getEfectivoContra() {
         return efectivoContra;
@@ -77,7 +70,7 @@ import java.util.Random;
         return debilContra;
     }
 
-    public static int numAleatorio(){
+    public static int numAleatorio() {
         Random r = new Random();
         return r.nextInt((120 - 20) + 1) + 20;
     }

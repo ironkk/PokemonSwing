@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pokemonswing;
 
 import javax.swing.JOptionPane;
@@ -12,15 +7,15 @@ import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public class AltaPokemonFuego extends javax.swing.JDialog {
+
     public AltaPokemonFuego(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -140,23 +135,27 @@ public class AltaPokemonFuego extends javax.swing.JDialog {
         String name = nombre.getText();
 
         //filtramos para tener los posibles errores en cuenta
-        if (name.equalsIgnoreCase("")) JOptionPane.showMessageDialog(this, "Nombre vacio");
-        else if (ataque < 0) JOptionPane.showMessageDialog(this, "Ataque negativo");
-        else if (defensa < 0)JOptionPane.showMessageDialog(this, "Defensa negativa");
-        else if (hp < 0) JOptionPane.showMessageDialog(this, "Salud negativa");
-            else {
+        if (name.equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Nombre vacio");
+        } else if (ataque < 0) {
+            JOptionPane.showMessageDialog(this, "Ataque negativo");
+        } else if (defensa < 0) {
+            JOptionPane.showMessageDialog(this, "Defensa negativa");
+        } else if (hp < 0) {
+            JOptionPane.showMessageDialog(this, "Salud negativa");
+        } else {
             //instanciamos un objeto pk de la clase Pokemon, al cual le asignaremos el nombre de nuestro HashMap
-             Pokemon pk = pokemonHash.get(name);
-             // si nuestro objeto esta vació, es decir el nombre ya existe, es null, crearemos un pokemon de tipoFuego.
-            if(pk == null){
-            PokemonFuego n = new PokemonFuego(name,ataque,defensa,hp);
-            //y lo añadiremos a nuestro HashMap, mediante el put.
-            pokemonHash.put(n.getNombre(), n);
-            // ya que ese pokemon no existia lo damos de alta
-            JOptionPane.showMessageDialog(this, "Pokemon: " + name + " " + "Tipo Fuego dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
-        }else{
+            Pokemon pk = pokemonHash.get(name);
+            // si nuestro objeto esta vació, es decir el nombre ya existe, es null, crearemos un pokemon de tipoFuego.
+            if (pk == null) {
+                PokemonFuego n = new PokemonFuego(name, ataque, defensa, hp);
+                //y lo añadiremos a nuestro HashMap, mediante el put.
+                pokemonHash.put(n.getNombre(), n);
+                // ya que ese pokemon no existia lo damos de alta
+                JOptionPane.showMessageDialog(this, "Pokemon: " + name + " " + "Tipo Fuego dado de alta", "Alta Satisfactoria", JOptionPane.INFORMATION_MESSAGE);
+            } else {
                 //ya que ese pokemon existe, mostramos el error y no lo damos de alta
-              JOptionPane.showMessageDialog(this, "Ya existe un pokemon con ese nombre");  
+                JOptionPane.showMessageDialog(this, "Ya existe un pokemon con ese nombre");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

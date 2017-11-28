@@ -4,9 +4,11 @@ import java.util.Objects;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
-public abstract class Pokemon implements Capturable{
+//La clase Pokemon es una clase abstracta ya que no se podran instanciar objetos de esta.
+//También implementa una interfaz Capturable para que puedan heredarla los tipos de pokemon y reutilizarla.
+public abstract class Pokemon implements Capturable {
 
     private String nombre;
     private int ataque;
@@ -86,7 +88,7 @@ public abstract class Pokemon implements Capturable{
         final Pokemon other = (Pokemon) obj;
         return true;
     }
-    
+
     /*
      public int pPlanta() {
         int numPlanta = 0;
@@ -117,6 +119,5 @@ public abstract class Pokemon implements Capturable{
         }
         return numFuego;
     }
-    */
-    
+     */
 }

@@ -1,20 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pokemonswing;
-
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public class Principal extends javax.swing.JFrame {
+
     public Principal() {
         initComponents();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,31 +116,35 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
-        //Al clicar sobre el botón alta, nos dirigirá a la clase AltaPokemon.java
+        //Al clicar sobre el botón alta, nos dirigirá a la clase jDialog AltaPokemon.java
         AltaPokemon ap = new AltaPokemon(this, true);
         ap.setLocationRelativeTo(null);
         ap.setVisible(true);
     }//GEN-LAST:event_altaActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        //Al clicar sobre el botón Modificar, nos dirigirá a la clase jDialog ModificarPokemon.java
         ModificarPokemon m = new ModificarPokemon(this, true);
         m.setLocationRelativeTo(null);
         m.setVisible(true);
     }//GEN-LAST:event_modificarActionPerformed
 
     private void verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verActionPerformed
+        //Al clicar sobre el botón Ver, nos dirigirá a la clase jDialog VerPokemon.java
         VerPokemon vp = new VerPokemon(this, true);
         vp.setLocationRelativeTo(null);
         vp.setVisible(true);
     }//GEN-LAST:event_verActionPerformed
 
     private void capturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capturarActionPerformed
+        //Al clicar sobre el botón Capturar, nos dirigirá a la clase jDialog CapturarPokemon.java
         CapturarPokemon cp = new CapturarPokemon(this, true);
         cp.setLocationRelativeTo(null);
         cp.setVisible(true);
     }//GEN-LAST:event_capturarActionPerformed
 
     private void totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalesActionPerformed
+        //Al clicar sobre el botón Totales, nos dirigirá a la clase jDialog Totales.java
         Totales tt = new Totales(this, true);
         tt.setLocationRelativeTo(null);
         tt.setVisible(true);

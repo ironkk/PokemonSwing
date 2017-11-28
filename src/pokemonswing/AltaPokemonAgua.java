@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pokemonswing;
 
 import javax.swing.JOptionPane;
@@ -12,7 +7,7 @@ import static pokemonswing.PokemonSwing.pokemonHash;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
 public class AltaPokemonAgua extends javax.swing.JDialog {
 
@@ -174,6 +169,7 @@ public class AltaPokemonAgua extends javax.swing.JDialog {
                 }
                 //creamos el PokemonAgua  teniendo en cuenta que si el primer valor es true (tipo agua: dulce) y si es false ( tipo agua: salada).
                 PokemonAgua n = new PokemonAgua(dulce, name, ataque, defensa, hp);
+
                 //y lo añadiremos a nuestro HashMap, mediante el put.
                 pokemonHash.put(n.getNombre(), n);
                 // ya que ese pokemon no existia lo damos de alta

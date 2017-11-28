@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 import java.util.Objects;
@@ -10,9 +5,9 @@ import java.util.Random;
 
 /**
  *
- * @author DAM
+ * @author ironkk
  */
-public class PokemonAgua extends Pokemon{
+public class PokemonAgua extends Pokemon {
 
     private String efectivoContra = "Fuego";
     private String debilContra = "Planta";
@@ -22,11 +17,6 @@ public class PokemonAgua extends Pokemon{
         super(nombre, ataque, defensa, salud);
         this.dulce = dulce;
     }
-
- 
-    
-
-
 
     @Override
     public int hashCode() {
@@ -51,14 +41,12 @@ public class PokemonAgua extends Pokemon{
         return true;
     }
 
-    
     @Override
     public boolean capturar() {
         int numObtenido = numAleatorio();
         if (numObtenido - getSalud() > getDefensa()) {
             return true;
         } else {
-
             return false;
         }
     }
