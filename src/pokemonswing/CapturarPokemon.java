@@ -114,7 +114,7 @@ public class CapturarPokemon extends javax.swing.JDialog {
 
             } else {
                 //ya que ese pokemon existe, mostramos el error y no lo damos de alta
-                JOptionPane.showMessageDialog(this, "Ya existe un pokemon con ese nombre");
+                JOptionPane.showMessageDialog(this, "No existe un pokemon con ese nombre");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

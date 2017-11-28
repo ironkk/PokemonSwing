@@ -146,7 +146,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_capturarActionPerformed
 
     private void totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalesActionPerformed
-           JOptionPane.showMessageDialog(this, "Fuego" );
+        Totales tt = new Totales(this, true);
+        tt.setLocationRelativeTo(null);
+        tt.setVisible(true);
     }//GEN-LAST:event_totalesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
